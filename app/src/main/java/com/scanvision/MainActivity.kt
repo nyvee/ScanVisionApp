@@ -36,7 +36,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        if (!userRepository.isLoggedIn()) {
+        if (userRepository.isLoggedIn()) {
+            // Navigate to Home Screen
+            navController.navigate(R.id.action_loginFragment_to_homeFragment)
+        } else {
+            // Navigate to Login Screen
             navController.navigate(R.id.loginFragment)
         }
     }

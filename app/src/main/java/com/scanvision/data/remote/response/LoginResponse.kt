@@ -3,7 +3,7 @@ package com.scanvision.data.remote.response
 data class LoginResponse(
     val status: String,
     val message: String,
-    val data: LoginData
+    val data: LoginData?
 )
 
 data class LoginData(
@@ -17,5 +17,5 @@ data class LoginData(
 
 data class LoginRequest(
     val email: String,
-    val password: String
+    val password_hash: String
 )

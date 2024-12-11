@@ -49,6 +49,7 @@ class RegisterFragment : Fragment() {
         passwordEditText = view.findViewById(R.id.ed_register_password)
         passwordVisibilityToggle = view.findViewById(R.id.passwordVisibilityToggle)
         registeredEmailTextView = view.findViewById(R.id.registeredEmailTextView)
+        registerButton = view.findViewById(R.id.signupButton) // Initialize registerButton here
 
         (activity as AppCompatActivity).supportActionBar?.hide()
 

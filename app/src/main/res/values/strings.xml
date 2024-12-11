@@ -5,4 +5,5 @@
     <string name="title_notifications">Notifications</string>
     <string name="password_too_short">Password too short</string>
     <string name="invalid_email">Email Invalid</string>
+    <string name="sign_in">Sign In</string>
 </resources>

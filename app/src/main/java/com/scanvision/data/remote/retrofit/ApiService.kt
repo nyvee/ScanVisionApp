@@ -1,18 +1,14 @@
 package com.scanvision.data.remote.retrofit
 
-import com.scanvision.data.UserRequest
 import com.scanvision.data.remote.response.ApiResponse
 import com.scanvision.data.remote.response.LoginRequest
-import com.scanvision.data.remote.response.LoginResponse
 import com.scanvision.data.remote.response.ModelResponse
-import com.scanvision.data.remote.response.RegisterResponse
+import com.scanvision.data.remote.response.RegisterRequest
 import okhttp3.MultipartBody
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Multipart
@@ -34,10 +30,10 @@ interface ModelApiService {
 }
 
 interface UserApiService {
-    @POST("register")
+    @POST("regis")
     suspend fun register(
         @Header("x-api-key") apiKey: String,
-        @Body request: UserRequest
+        @Body request: RegisterRequest
     ): Response<ResponseBody>
 
     @POST("login")

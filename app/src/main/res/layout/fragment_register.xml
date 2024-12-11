@@ -11,6 +11,12 @@
     android:paddingHorizontal="45dp"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/app_icon"
+        android:layout_marginBottom="50dp"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -84,6 +90,70 @@
             android:src="@drawable/ic_visibility_off" />
     </FrameLayout>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginTop="30dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Register"
+            android:textColor="@color/white_1"
+            android:id="@+id/signupButton"
+            android:textSize="20sp"
+            android:fontFamily="@font/nunito_sans_semibold"
+            android:backgroundTint="@color/black_1"
+            android:textAllCaps="false"
+            android:elevation="0dp"
+            app:cornerRadius="18dp"
+            android:letterSpacing="0"/>
+
+        <ProgressBar
+            android:id="@+id/loginProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/black_1"
+            android:tint="@color/black_1"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/orDividerTextView"
+        android:text="or"
+        android:textColor="@color/gray"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:fontFamily="@font/nunito_sans" />
+
+    <Button
+        android:id="@+id/goToLoginButton"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="Already have an account?"
+        android:textColor="@color/black_1"
+        android:textSize="20sp"
+        android:fontFamily="@font/nunito_sans_semibold"
+        android:textAllCaps="false"
+        android:elevation="0dp"
+        android:backgroundTint="@color/white_1"
+        app:cornerRadius="18dp"
+        android:letterSpacing="0"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/privacyPolicyTextView"
+        android:text="By using this app, you agree to our terms and privacy policy."
+        android:textColor="@color/black_1"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:fontFamily="@font/nunito_sans_semibold"
+        android:layout_marginTop="60dp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -91,49 +161,5 @@
         android:textColor="@color/red"
         android:layout_marginTop="10dp"
         android:visibility="gone"/>
-
-    <LinearLayout
-        android:id="@+id/signupButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/rounded_button_bg_18_dark"
-        android:layout_marginTop="25dp"
-        android:padding="5dp"
-        android:gravity="center_vertical"
-        app:layout_constraintTop_toBottomOf="@id/previewCardView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingHorizontal="10dp"
-            android:text="Sign Up"
-            android:textSize="20sp"
-            android:fontFamily="@font/nunito_sans_semibold"
-            android:textColor="@color/white_1" />
-
-        <ImageView
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="8dp"
-            android:background="@drawable/rounded_button_bg_13_dark"
-            android:contentDescription="Next Button"
-            android:src="@drawable/ic_arrow_right"
-            android:padding="10dp"
-            app:tint="@color/white_1" />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/goToLoginButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Already have an account? Sign in here"
-        android:textColor="@color/black_1"
-        android:background="@null"/>
 
 </LinearLayout>
