@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ml.CameraFragment"
+    android:background="@color/white_2"
+    android:padding="16dp">
+
+    <!-- Header Section -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/rounded_button_bg_18"
+            android:contentDescription="Back Button"
+            android:src="@drawable/ic_arrow_left"
+            android:visibility="visible"
+            app:tint="@color/black_1" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/nunito_sans_medium"
+            android:text="Camera"
+            android:textColor="@color/black_1"
+            android:textSize="20sp"
+            android:gravity="center" />
+
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/rounded_button_bg_18"
+            android:contentDescription="Placeholder Button"
+            android:padding="12dp"
+            android:visibility="invisible"
+            app:tint="@color/black_1" />
+    </LinearLayout>
+
+    <!-- Image Preview Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/previewCardView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="35dp"
+        app:cardElevation="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/previewImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/image_placeholder_big" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Continue Button -->
+    <LinearLayout
+        android:id="@+id/btn_continue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_button_bg_18_dark"
+        android:layout_marginTop="25dp"
+        android:padding="5dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/previewCardView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="10dp"
+            android:text="Continue"
+            android:textSize="16sp"
+            android:fontFamily="@font/nunito_sans_semibold"
+            android:textColor="@color/white_1" />
+
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/rounded_button_bg_13_dark"
+            android:contentDescription="Next Button"
+            android:src="@drawable/ic_arrow_right"
+            android:padding="10dp"
+            app:tint="@color/white_1" />
+    </LinearLayout>
+
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/btn_continue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        style="@android:style/Widget.Material.ProgressBar.Large" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

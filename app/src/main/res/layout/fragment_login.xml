@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/white_2"
+    android:paddingHorizontal="45dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome Back"
+        android:id="@+id/loginText"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:fontFamily="@font/nunito_sans_black"
+        android:textColor="@color/black_1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please sign in to continue."
+        android:id="@+id/loginText2"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:fontFamily="@font/nunito_sans_medium"
+        android:textColor="@color/black_1"/>
+
+    <com.scanvision.ui.custom.EmailEditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/ed_login_email"
+        android:background="@drawable/custom_edittext"
+        android:fontFamily="@font/nunito_sans"
+        android:textSize="16sp"
+        android:layout_marginTop="40dp"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="20dp"
+        android:hint="Email"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black_1"
+        android:drawablePadding="8dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp">
+
+        <com.scanvision.ui.custom.PasswordEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ed_login_password"
+            android:background="@drawable/custom_edittext"
+            android:fontFamily="@font/nunito_sans"
+            android:textSize="16sp"
+            android:inputType="textPassword"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="20dp"
+            android:hint="Password"
+            android:textColorHint="@color/gray"
+            android:textColor="@color/black_1"
+            android:drawablePadding="8dp"/>
+
+        <ImageView
+            android:id="@+id/passwordVisibilityToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:padding="8dp"
+            android:src="@drawable/ic_visibility_off" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/forgotPasswordTextView"
+        android:text="Forgot Password?"
+        android:textColor="@color/black_1"
+        android:textAlignment="viewEnd"
+        android:textSize="16sp"
+        android:fontFamily="@font/nunito_sans_semibold"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/wrongCredentialsTextView"
+        android:textColor="@color/red"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button_bg_18_dark"
+        android:layout_marginTop="25dp"
+        android:padding="5dp"
+        android:text="Login"
+        android:textSize="20sp"
+        android:fontFamily="@font/nunito_sans_semibold"
+        android:textColor="@color/white_1" />
+
+    <Button
+        android:id="@+id/goToRegisterButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Don't have an account? Register here"
+        android:textColor="@color/black_1"
+        android:background="@null"/>
+
+</LinearLayout>

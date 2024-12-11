@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_2">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            android:paddingVertical="10dp">
+
+            <!-- Back Button -->
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/rounded_button_bg_18"
+                android:contentDescription="Back Button"
+                android:src="@drawable/ic_arrow_left"
+                app:tint="@color/black_1" />
+
+            <!-- Title Text -->
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/nunito_sans_medium"
+                android:text="Result"
+                android:textColor="@color/black_1"
+                android:textSize="20sp"
+                android:gravity="center" />
+
+            <!-- Profile Button -->
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/rounded_button_bg_18"
+                android:contentDescription="Profile Button"
+                android:src="@drawable/ic_profile"
+                app:tint="@color/black_1"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <!-- Result Card View -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/resultCardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:cardCornerRadius="35dp"
+            app:cardElevation="0dp">
+
+            <!-- Result Image -->
+            <ImageView
+                android:id="@+id/resultImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Result Image"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/image_placeholder_big" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/resultTextViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/nunito_sans_medium"
+            android:text="Result:"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/resultCardView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/resultTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Result Text"
+            android:fontFamily="@font/nunito_sans_black"
+            android:textSize="40sp"
+            android:textColor="@color/black_1"
+            app:layout_constraintTop_toBottomOf="@id/resultTextViewTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/resultTimeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Result Time"
+            android:fontFamily="@font/nunito_sans_light"
+            android:textSize="12sp"
+            android:textColor="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/resultTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/resultDateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Result Date"
+            android:fontFamily="@font/nunito_sans_semibold"
+            android:textSize="12sp"
+            android:textColor="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/resultTimeTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

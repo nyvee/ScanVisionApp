@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/white_2"
+    android:paddingHorizontal="45dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:id="@+id/loginText"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:fontFamily="@font/nunito_sans_black"
+        android:textColor="@color/black_1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fill all the form to create an account."
+        android:id="@+id/loginText2"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:fontFamily="@font/nunito_sans_medium"
+        android:textColor="@color/black_1"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/ed_register_name"
+        android:background="@drawable/custom_edittext"
+        android:layout_marginTop="40dp"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="20dp"
+        android:hint="Name"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black_1"
+        android:drawablePadding="8dp"/>
+
+    <com.scanvision.ui.custom.EmailEditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/ed_register_email"
+        android:background="@drawable/custom_edittext"
+        android:layout_marginTop="20dp"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="20dp"
+        android:hint="Email"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black_1"
+        android:drawablePadding="8dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp">
+
+        <com.scanvision.ui.custom.PasswordEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ed_register_password"
+            android:background="@drawable/custom_edittext"
+            android:inputType="textPassword"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="20dp"
+            android:hint="Password"
+            android:textColorHint="@color/gray"
+            android:textColor="@color/black_1"
+            android:drawablePadding="8dp"/>
+
+        <ImageView
+            android:id="@+id/passwordVisibilityToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:padding="8dp"
+            android:src="@drawable/ic_visibility_off" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/registeredEmailTextView"
+        android:textColor="@color/red"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/signupButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_button_bg_18_dark"
+        android:layout_marginTop="25dp"
+        android:padding="5dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/previewCardView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="10dp"
+            android:text="Sign Up"
+            android:textSize="20sp"
+            android:fontFamily="@font/nunito_sans_semibold"
+            android:textColor="@color/white_1" />
+
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/rounded_button_bg_13_dark"
+            android:contentDescription="Next Button"
+            android:src="@drawable/ic_arrow_right"
+            android:padding="10dp"
+            app:tint="@color/white_1" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/goToLoginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Already have an account? Sign in here"
+        android:textColor="@color/black_1"
+        android:background="@null"/>
+
+</LinearLayout>
