@@ -75,7 +75,7 @@ class LoginFragment : Fragment() {
                         loginButton.setBackgroundColor(resources.getColor(R.color.black_1))
                         if (isSuccess) {
                             Toast.makeText(requireContext(), "Login Successful!", Toast.LENGTH_SHORT).show()
-                            Log.d("LoginFragment", "Token received: ${viewModel.getToken()}")
+                            Log.d("LoginFragment", "User UUID received: ${viewModel.getUserUUID()}")
                             val navOptions = NavOptions.Builder()
                                 .setEnterAnim(R.anim.slide_in_right)
                                 .setExitAnim(R.anim.slide_out_left)

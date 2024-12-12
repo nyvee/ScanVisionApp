@@ -31,14 +31,14 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.navigation_home, R.id.navigation_article, R.id.navigation_history, R.id.navigation_profile -> navView.visibility = View.VISIBLE
+                R.id.homeFragment, R.id.articleFragment, R.id.historyFragment, R.id.profileFragment -> navView.visibility = View.VISIBLE
                 else -> navView.visibility = View.GONE
             }
         }
 
         if (userRepository.isLoggedIn()) {
             // Navigate to Home Screen
-            navController.navigate(R.id.action_loginFragment_to_homeFragment)
+            navController.navigate(R.id.homeFragment)
         } else {
             // Navigate to Login Screen
             navController.navigate(R.id.loginFragment)

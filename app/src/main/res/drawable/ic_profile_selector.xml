@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_checked="true"
-        android:color="@color/cyan"
+        android:color="@color/cyan_dark"
         android:drawable="@drawable/ic_profile_filled"/>
     <item android:color="@color/gray"
         android:drawable="@drawable/ic_profile"/>

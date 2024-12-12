@@ -3,13 +3,7 @@ package com.scanvision.data
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
-import com.auth0.jwt.JWT
-import com.scanvision.data.remote.response.ErrorResponse
-import com.scanvision.data.remote.response.LoginRequest
-import com.scanvision.data.remote.response.LoginResponse
-import com.scanvision.data.remote.response.LoginData
-import com.scanvision.data.remote.response.RegisterResponse
-import com.scanvision.data.remote.response.RegisterRequest
+import com.scanvision.data.remote.response.*
 import com.scanvision.data.remote.retrofit.RetrofitInstance
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +11,10 @@ import kotlinx.coroutines.withContext
 import okhttp3.ResponseBody
 import retrofit2.HttpException
 import retrofit2.Response
-import java.util.*
+import java.io.File
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
 
 class UserRepository(private val context: Context) {
     private val sharedPref: SharedPreferences =
@@ -36,7 +33,7 @@ class UserRepository(private val context: Context) {
                     val loginResponse = Gson().fromJson(responseBody, LoginResponse::class.java)
                     Log.d("UserRepository", "Parsed LoginResponse: $loginResponse")
                     loginResponse?.data?.let {
-                        saveUserSession(context, it)
+                        saveUserSession(context, it) // Pass LoginData object here
                     } ?: throw Exception("LoginResponse or useruuid is null")
                     loginResponse
                 } else {
@@ -85,6 +82,9 @@ class UserRepository(private val context: Context) {
         editor.putString("useruuid", user.useruuid)
         editor.putString("email", user.email)
         editor.putString("username", user.username)
+        editor.putString("address", user.address)
+        editor.putInt("age", user.age ?: -1)
+        editor.putString("gender", user.gender)
         editor.apply()
     }
 
@@ -93,10 +93,33 @@ class UserRepository(private val context: Context) {
         val useruuid = sharedPreferences.getString("useruuid", null)
         val email = sharedPreferences.getString("email", null)
         val username = sharedPreferences.getString("username", "") ?: ""
+        val address = sharedPreferences.getString("address", null)
+        val age = sharedPreferences.getInt("age", -1).takeIf { it != -1 }
+        val gender = sharedPreferences.getString("gender", null)
 
         return if (useruuid != null && email != null) {
-            LoginData(useruuid = useruuid, email = email, username = username, address = null, age = null, gender = null)
+            LoginData(useruuid = useruuid, email = email, username = username, address = address, age = age, gender = gender)
         } else null
+    }
+
+    suspend fun getProfileImage(userUUID: String): Response<ProfileImageResponse> {
+        return withContext(Dispatchers.IO) {
+            RetrofitInstance.userApi.getProfileImage(apiKey, userUUID)
+        }
+    }
+
+    suspend fun updateProfileImage(userUUID: String, file: File): Response<ResponseBody> {
+        val requestFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+        val body = MultipartBody.Part.createFormData("image", file.name, requestFile)
+        return withContext(Dispatchers.IO) {
+            RetrofitInstance.userApi.updateProfileImage(apiKey, userUUID, body)
+        }
+    }
+
+    suspend fun updateUser(userUUID: String, request: UpdateUserRequest): Response<ResponseBody> {
+        return withContext(Dispatchers.IO) {
+            RetrofitInstance.userApi.updateUser(apiKey, userUUID, request)
+        }
     }
 
     fun clearSession() {
@@ -104,29 +127,11 @@ class UserRepository(private val context: Context) {
     }
 
     fun isLoggedIn(): Boolean {
-        val token = sharedPref.getString("token", null)
-        return token != null && !isTokenExpired(token)
+        val useruuid = sharedPref.getString("useruuid", null)
+        return useruuid != null
     }
 
-    fun getToken(): String? {
-        return sharedPref.getString("token", null)
-    }
-
-    private fun isTokenExpired(token: String): Boolean {
-        return try {
-            val decodedJWT = JWT.decode(token)
-            val expiryDate = decodedJWT.expiresAt
-            val currentDate = Calendar.getInstance().time
-
-            if (expiryDate == null) {
-                val issueDateClaim = decodedJWT.getClaim("iat").asDate()
-                val issueDate = issueDateClaim ?: currentDate
-                val validUntil = Date(issueDate.time + 24 * 60 * 60 * 1000)
-                return currentDate.after(validUntil)
-            }
-            expiryDate != null && currentDate.after(expiryDate)
-        } catch (e: Exception) {
-            true
-        }
+    fun getUserUUID(): String? {
+        return sharedPref.getString("useruuid", null)
     }
 }

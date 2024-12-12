@@ -13,6 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.scanvision.R
+import com.scanvision.adapter.ArticleAdapter
+import com.scanvision.adapter.CarouselAdapter
+import com.scanvision.data.UserRepository
 import com.scanvision.data.remote.response.ApiResponse
 import com.scanvision.data.remote.response.Article
 import com.scanvision.data.remote.retrofit.RetrofitInstance
@@ -26,6 +29,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private lateinit var userRepository: UserRepository
     private val handler = Handler(Looper.getMainLooper())
     private val scrollRunnable = object : Runnable {
         override fun run() {
@@ -48,6 +52,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        userRepository = UserRepository(requireContext())
+        val user = userRepository.getUserSession(requireContext())
+        binding.tvUsername.text = user?.username ?: "Guest"
 
         val images = listOf(R.drawable.image1, R.drawable.image2, R.drawable.image3)
         val adapter = CarouselAdapter(images)
@@ -83,7 +91,7 @@ class HomeFragment : Fragment() {
     private fun setupRecyclerView(articles: List<Article>) {
         _binding?.let { binding ->
             binding.rvArticles.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            binding.rvArticles.adapter = ArticleAdapter(articles)
+            binding.rvArticles.adapter = ArticleAdapter(articles, ArticleAdapter.VIEW_TYPE_SHORT)
         }
     }
 

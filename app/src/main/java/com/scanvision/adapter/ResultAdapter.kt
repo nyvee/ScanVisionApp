@@ -1,4 +1,4 @@
-package com.scanvision.ui.history
+package com.scanvision.adapter
 
 import android.net.Uri
 import android.view.LayoutInflater

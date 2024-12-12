@@ -80,4 +80,7 @@ dependencies {
 
     // jwt
     implementation("com.auth0:java-jwt:4.0.0")
+
+    // SwipeRefreshLayout
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }

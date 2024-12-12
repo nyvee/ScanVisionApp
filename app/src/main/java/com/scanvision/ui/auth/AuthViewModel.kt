@@ -43,7 +43,7 @@ class AuthViewModel(context: Context) : ViewModel() {
         return repository.isLoggedIn()
     }
 
-    fun getToken(): String? {
-        return repository.getToken()
+    fun getUserUUID(): String? {
+        return repository.getUserUUID()
     }
 }

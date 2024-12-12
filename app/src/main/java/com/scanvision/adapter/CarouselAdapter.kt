@@ -1,4 +1,4 @@
-package com.scanvision.ui.home
+package com.scanvision.adapter
 
 import android.view.LayoutInflater
 import android.view.View

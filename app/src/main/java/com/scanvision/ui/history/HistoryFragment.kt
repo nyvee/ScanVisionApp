@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.scanvision.adapter.ResultAdapter
 import com.scanvision.data.local.AppDatabase
 import com.scanvision.data.local.ResultEntity
 import com.scanvision.databinding.FragmentHistoryBinding
@@ -36,11 +37,18 @@ class HistoryFragment : Fragment() {
 
         lifecycleScope.launch {
             resultDao.getAllResults().collect { results ->
-                val adapter = ResultAdapter(results) { result ->
-                    deleteResult(result)
+                if (results.isEmpty()) {
+                    binding.tvNoHistory.visibility = View.VISIBLE
+                    binding.rvHistoryResult.visibility = View.GONE
+                } else {
+                    binding.tvNoHistory.visibility = View.GONE
+                    binding.rvHistoryResult.visibility = View.VISIBLE
+                    val adapter = ResultAdapter(results) { result ->
+                        deleteResult(result)
+                    }
+                    binding.rvHistoryResult.layoutManager = LinearLayoutManager(requireContext())
+                    binding.rvHistoryResult.adapter = adapter
                 }
-                binding.rvHistoryResult.layoutManager = LinearLayoutManager(requireContext())
-                binding.rvHistoryResult.adapter = adapter
             }
         }
     }

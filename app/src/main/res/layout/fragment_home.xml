@@ -60,18 +60,6 @@
                     android:src="@drawable/ic_notification"
                     android:visibility="visible"
                     app:tint="@color/black_1" />
-
-                <ImageButton
-                    android:id="@+id/btn_profile"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="8dp"
-                    android:background="@drawable/rounded_button_bg_18"
-                    android:contentDescription="Profile Button"
-                    android:src="@drawable/ic_profile"
-                    android:padding="12dp"
-                    android:visibility="visible"
-                    app:tint="@color/black_1" />
             </LinearLayout>
         </LinearLayout>
 
