@@ -5,6 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
     private const val ARTICLE_URL = "https://newsapi.org/"
+    private const val MODEL_URL = "https://predict-matane-api-951509849147.asia-southeast2.run.app/"
     private const val BASE_URL = "https://user-matane-api-951509849147.asia-southeast2.run.app/"
 
     val api: NewsApiService by lazy {
@@ -12,7 +13,7 @@ object RetrofitInstance {
     }
 
     val modelApi: ModelApiService by lazy {
-        createRetrofit(BASE_URL).create(ModelApiService::class.java)
+        createRetrofit(MODEL_URL).create(ModelApiService::class.java)
     }
 
     val userApi: UserApiService by lazy {
