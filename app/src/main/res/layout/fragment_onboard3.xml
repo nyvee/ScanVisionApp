@@ -1,0 +1,110 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white_2">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/iv_cardView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="120dp"
+        app:cardCornerRadius="18dp"
+        app:cardBackgroundColor="@color/white_1"
+        app:cardElevation="0dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Card Image"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/img_onboard3" />
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/app_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="16dp"
+        android:progress="100"
+        android:progressDrawable="@drawable/rounded_progress_bar"
+        android:max="100"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        android:layout_marginTop="100dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_sans_black"
+            android:textSize="40sp"
+            android:textColor="@color/white_1"
+            android:text="Stay Informed and Empowered"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:textSize="16sp"
+            android:textColor="@color/white_1"
+            android:text="Access the latest ophthalmology articles and resources to stay updated. Make informed decisions about your eye care and feel confident knowing you have the support you need."/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_continue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_button_bg_18_dark"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/iv_cardView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="10dp"
+            android:text="Continue"
+            android:textSize="16sp"
+            android:fontFamily="@font/nunito_sans_semibold"
+            android:textColor="@color/white_1" />
+
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/rounded_button_bg_13_dark"
+            android:contentDescription="Next Button"
+            android:src="@drawable/ic_arrow_right"
+            android:padding="10dp"
+            app:tint="@color/white_1" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

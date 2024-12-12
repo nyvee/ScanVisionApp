@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ScanVision" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.ScanVision" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/white_2</item>
     </style>

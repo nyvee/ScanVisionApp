@@ -31,7 +31,6 @@
             app:destination="@id/manageProfileFragment" />
     </fragment>
 
-
     <fragment
         android:id="@+id/manageProfileFragment"
         android:name="com.scanvision.ui.profile.ManageProfileFragment"
@@ -93,4 +92,51 @@
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/onboardFragment1"
+        android:name="com.scanvision.ui.onboarding.OnboardingFragment1"
+        android:label=""
+        tools:layout="@layout/fragment_onboard1">
+        <action
+            android:id="@+id/action_onboardFragment1_to_onboard2Fragment"
+            app:destination="@id/onboardFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_skip_onboardFragment1_to_onboard3Fragment"
+            app:destination="@id/onboardFragment3"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/onboardFragment2"
+        android:name="com.scanvision.ui.onboarding.OnboardingFragment2"
+        android:label=""
+        tools:layout="@layout/fragment_onboard2">
+        <action
+            android:id="@+id/action_onboardFragment2_to_onboard3Fragment"
+            app:destination="@id/onboardFragment3"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_skip_onboardFragment2_to_onboard3Fragment"
+            app:destination="@id/onboardFragment3"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/onboardFragment3"
+        android:name="com.scanvision.ui.onboarding.OnboardingFragment3"
+        android:label=""
+        tools:layout="@layout/fragment_onboard3">
+        <action
+            android:id="@+id/action_onboardFragment3_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+
 </navigation>
